@@ -1,18 +1,12 @@
 const express = require('express');
 const cors = require('cors');
-
-// const router = require('./src/routes/routes');
-// Falta criar o arquivo routes
-
 const app = express();
+const routes = require('./src/routes/routes');
+
 app.use(cors());
 app.use(express.json());
-//app.use(router);
+app.use(routes);
 
-app.listen(3000, function() {
-    console.log('servidor rodando na porta 3000')
-})
-
-app.get('/', (req, res) => {
-    res.send('Ta dando certo fdp!')
-})
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
